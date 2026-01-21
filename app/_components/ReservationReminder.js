@@ -10,14 +10,14 @@ function ReservationReminder() {
   if (!range.from || !range.to) return null;
 
   return (
-    <div className="fixed bottom-6 left-1/2 -translate-x-1/2 py-5 px-8 rounded-full bg-accent-500 text-primary-800 text  font-semibold shadow-xl shadow-slate-900 flex gap-8 items-center">
-      <p>
-        <span>👋</span> Don&apos;t forget to reserve your dates <br /> from{" "}
+    <div className="fixed bottom-6 left-1/2 -translate-x-1/2 py-5 px-8 rounded-xl md:rounded-full bg-accent-500 text-primary-800 text-sm md:text-base font-semibold shadow-xl shadow-slate-900 flex flex-col md:flex-row gap-4 md:gap-8 items-center w-[90vw] md:w-auto z-50">
+      <p className="text-center md:text-left">
+        <span>👋</span> Don&apos;t forget to reserve your dates <br className="hidden md:block" /> from{" "}
         {format(new Date(range.from), "MMM dd yyyy")} to{" "}
         {format(new Date(range.to), "MMM dd yyyy")}
       </p>
       <button
-        className="rounded-full p-1 hover:bg-accent-600 transition-all"
+        className="rounded-full p-1 hover:bg-accent-600 transition-all absolute top-2 right-2 md:static"
         onClick={resetRange}
       >
         <XMarkIcon className="h-5 w-5" />

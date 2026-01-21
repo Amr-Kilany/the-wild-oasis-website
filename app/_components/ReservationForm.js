@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 "use client";
 
 import { differenceInDays } from "date-fns";
@@ -7,7 +8,6 @@ import SubmitButton from "./SubmitButton";
 
 function ReservationForm({ cabin, user }) {
   const { range, resetRange } = useReservation();
-  // CHANGE
   const { maxCapacity, regularPrice, discount, id } = cabin;
 
   const startDate = range?.from;
@@ -28,10 +28,10 @@ function ReservationForm({ cabin, user }) {
 
   return (
     <div className="scale-[1.01]">
-      <div className="bg-primary-800 text-primary-300 px-16 py-2 flex justify-between items-center">
+      <div className="bg-primary-800 text-primary-300 px-4 md:px-16 py-2 flex flex-col md:flex-row justify-between items-center">
         <p>Logged in as</p>
 
-        <div className="flex gap-4 items-center">
+        <div className="flex gap-4 items-center mt-2 md:mt-0">
           <img
             // Important to display google profile images
             referrerPolicy="no-referrer"
@@ -49,7 +49,7 @@ function ReservationForm({ cabin, user }) {
           await createBookingWithData(formData);
           resetRange();
         }}
-        className="bg-primary-900 py-10 px-16 text-lg flex gap-5 flex-col"
+        className="bg-primary-900 py-10 px-6 md:px-16 text-lg flex gap-5 flex-col"
       >
         <div className="space-y-2">
           <label htmlFor="numGuests">How many guests?</label>
