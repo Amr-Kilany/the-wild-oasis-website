@@ -1,36 +1,68 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# 🏝️ The Wild Oasis (Customer Website)
 
-## Getting Started
+A server-side rendered, customer-facing application for "The Wild Oasis" resort. This app allows guests to browse cabins, sign in via Google, and manage their reservations.
 
-First, run the development server:
+![Website Screenshot](public/screenshot.png) 
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## 🔗 Live Demo
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+**[Click here to book a Cabin](https://the-wild-oasis-website-ashen-rho.vercel.app)**  
+*(You can sign in with your real Google account - it is safe!)*
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+---
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+## 🚀 About the Project
 
-## Learn More
+This is the customer-facing side of a complete hotel management system. It connects to the same **Supabase** database as the [Admin Dashboard](https://github.com/Amr-Kilany/the-wild-oasis).
 
-To learn more about Next.js, take a look at the following resources:
+### ✨ Key Features
+*   **Next.js App Router:** Built with the latest React Server Components (RSC) and Server Actions.
+*   **Authentication:** Secure passwordless login using **NextAuth.js (Auth.js)** and Google OAuth.
+*   **Image Optimization:** Utilizing `next/image` for responsive, optimized cabin photos.
+*   **State Management:** URL-based state management for filtering cabins by capacity.
+*   **Database:** Real-time data fetching from Supabase.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 🛠️ Tech Stack
+*   **Framework:** Next.js 14
+*   **Styling:** Tailwind CSS
+*   **Backend:** Supabase (PostgreSQL)
+*   **Auth:** NextAuth.js
+*   **Date Handling:** date-fns
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+## 🤖 Data Reset
+To allow visitors to fully test the booking flow, the database is **automatically reset every night** via a GitHub Action in the Admin repository. Any booking you create today will be visible in the Admin Dashboard until the next reset cycle.
 
-## Deploy on Vercel
+---
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## 💻 Running Locally
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+1.  **Clone the repository**
+    ```bash
+    git clone https://github.com/Amr-Kilany/the-wild-oasis-website.git
+    cd the-wild-oasis-website
+    ```
+
+2.  **Install dependencies**
+    ```bash
+    npm install
+    ```
+
+3.  **Environment Setup**
+    Create a `.env.local` file with the following:
+    ```env
+    SUPABASE_URL=your_supabase_url
+    SUPABASE_KEY=your_supabase_anon_key
+    
+    AUTH_GOOGLE_ID=your_google_client_id
+    AUTH_GOOGLE_SECRET=your_google_client_secret
+    NEXTAUTH_URL=http://localhost:3000
+    NEXTAUTH_SECRET=your_random_secret_string
+    ```
+
+4.  **Run the development server**
+    ```bash
+    npm run dev
+    ```
+
+---
+**Developed by Amr Kilany**
